@@ -18,7 +18,7 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 
 | Component                    | Specification                        |
 |-----------------------------|--------------------------------------|
-| Jetson Nano                 | Main processing + ML                 |
+| Raspberry Pi 5                 | Main processing + ML                 |
 | Night-vision camera module  | For face and eye tracking            |
 | BLE heart rate wristband    | Wireless HR monitoring               |
 | MPU6050                     | 3-axis accelerometer + gyroscope     |
