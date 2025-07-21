@@ -55,17 +55,11 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
   - `/docs` — Architecture, references, testing notes
 - [x] Add this README
 - [ ] Create basic wireframe or flowchart for system architecture
-- [ ] Finalize and confirm each component (with SL purchase links)
-- [ ] Create parts cost spreadsheet (to manage budget)
-- [ ] Start procurement (order all hardware)
-- [ ] Research BLE wristband data protocol (HR profile, UUIDs)
+- [ ] Finalize and confirm each component 
+- [ ] Create parts cost spreadsheet 
+- [ ] Order all hardware
+- [ ] Research BLE wristband data protocol
 
-Deliverables:
-- Repository structured and initialized
-- README committed
-- Component spreadsheet + links confirmed
-- Component orders placed
 
----
 
 
