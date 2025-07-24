@@ -1,1 +1,1 @@
-![System architecture diagram](Resources/Blank diagram (1).png)
+[Link to Architecture Diagram](https://lucid.app/lucidchart/32cc0406-70f7-41dc-9af4-844296879085/edit?viewport_loc=-1240%2C-1101%2C2475%2C2083%2C0_0&invitationId=inv_8b8f6e9e-bf17-4b59-8de6-2f59f5599511)
