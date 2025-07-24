@@ -1,0 +1,1 @@
+![System architecture diagram](Resources/Blank diagram (1).png)
