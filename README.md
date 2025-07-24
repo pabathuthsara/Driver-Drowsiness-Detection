@@ -57,6 +57,7 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 - [x] Create basic wireframe or flowchart for system architecture
 - [x] Finalize and confirm each component (with SL purchase links)
 - [ ] Research BLE wristband data protocol (HR profile, UUIDs)
+- [ ] Connect the rasberry pi 5 to the NoIR camera and test Face Landmark Detection & Pose Estimation by OpenCV
 
 
 
