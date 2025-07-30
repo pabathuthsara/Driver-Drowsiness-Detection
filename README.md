@@ -4,7 +4,7 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 
 ---
 
-## 🔧 Features
+## Features
 
 - Real-time **video-based drowsiness detection** (blinks, yawns, head tilt)
 - **Wireless heart rate monitoring** via BLE wristband
