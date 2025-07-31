@@ -2,15 +2,15 @@ import cv2
 import sys, time
 import mediapipe as mp
 import numpy as np
+
 mp_drawing = mp.solutions.drawing_utils
 mp_face_mesh = mp.solutions.face_mesh
 
 # For live video:
-
 drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 face_mesh = mp_face_mesh.FaceMesh(
     static_image_mode=False,  # Set to False for video
-    max_num_faces=1,          # Allow up to 2 faces
+    max_num_faces=1,          # Allow up to 1 face
     refine_landmarks=True,    # Better landmark accuracy
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5
@@ -26,8 +26,6 @@ RIGHT_EYE_POINTS = [362, 385, 387, 263, 373, 380]  # Right eye key points
 
 # Mouth landmarks for yawn detection
 MOUTH_POINTS = [61, 84, 17, 314, 405, 320, 307, 375, 321, 308, 324, 318]  # Key mouth points
-# Alternative mouth points for better yawn detection
-MOUTH_OUTER_POINTS = [61, 146, 91, 181, 84, 17, 314, 405, 320, 307, 375, 321, 308, 324, 318]
 
 # Blink detection variables
 EYE_AR_THRESH = 0.25  # Eye aspect ratio threshold for blink
@@ -137,41 +135,35 @@ def get_face_mesh(image):
         return annotated_image, avg_ear, blink_counter, mar, yawn_counter
     
     return annotated_image, 0, blink_counter, 0, yawn_counter
-     
-     
-font = cv2.FONT_HERSHEY_SIMPLEX    
-# Try different camera indices for OBS DroidCam
-camera_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-cap = None
 
-for idx in camera_indices:
-    print(f"Trying camera index {idx}...")
-    cap = cv2.VideoCapture(idx)
-    if cap.isOpened():
-        print(f"Successfully opened camera at index {idx}")
-        break
-    else:
-        cap.release()
+# Initialize webcam
+print("🔍 Initializing webcam...")
+cap = cv2.VideoCapture(0)  # Use camera index 0 (built-in webcam)
 
-if cap is None or not cap.isOpened():
-    print("Could not open any camera. Please check:")
-    print("1. OBS DroidCam is running and properly configured")
-    print("2. DroidCam virtual camera is enabled in OBS")
-    print("3. Your phone is connected and DroidCam is active")
+if not cap.isOpened():
+    print("❌ Could not open webcam. Please check:")
+    print("1. Webcam is connected and working")
+    print("2. No other application is using the webcam")
+    print("3. Webcam permissions are granted")
     sys.exit(1)
 
+print("✅ Webcam connected successfully!")
+
+# Set camera properties
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-print("Blink & Yawn Detection Started!")
+print("🚗 Driver Drowsiness Detection Started!")
 print("Blink normally and yawn to test the counters.")
 print("Press ESC to quit, S to save, R to reset counters")
+
+font = cv2.FONT_HERSHEY_SIMPLEX
 
 while cap.isOpened():
     s = time.time()
     ret, img = cap.read()  
     if ret == False:
-        print('WebCAM Read Error')    
+        print('❌ Webcam Read Error')    
         sys.exit(0)
         
     annotated, ear, blinks, mar, yawns = get_face_mesh(img)
@@ -180,7 +172,7 @@ while cap.isOpened():
     
     # Add FPS and title
     cv2.putText(annotated, 'FPS:%5.2f'%(fps), (10,30), font, fontScale = 0.7,  color = (0,255,0), thickness = 2)
-    cv2.putText(annotated, 'DroidCam: Blink & Yawn Detection', (10,60), font, fontScale = 0.6,  color = (0,255,0), thickness = 1)
+    cv2.putText(annotated, 'Webcam: Blink & Yawn Detection', (10,60), font, fontScale = 0.6,  color = (0,255,0), thickness = 1)
     
     # Add blink counter and EAR display
     cv2.putText(annotated, f'Blinks: {blinks}', (10,90), font, fontScale = 0.8,  color = (255,0,255), thickness = 2)
@@ -199,21 +191,21 @@ while cap.isOpened():
     
     cv2.putText(annotated, 'ESC=quit, S=save, R=reset counters', (10,270), font, fontScale = 0.4,  color = (0,255,0), thickness = 1)
     
-    cv2.imshow('DroidCam Face Mesh', annotated)
+    cv2.imshow('Webcam Face Mesh', annotated)
     key = cv2.waitKey(1)
     if key == 27:   #ESC
         break
     elif key == ord('s') or key == ord('S'):  # Save frame
-        filename = f'face_mesh_capture_{int(time.time())}.jpg'
+        filename = f'webcam_capture_{int(time.time())}.jpg'
         cv2.imwrite(filename, annotated)
-        print(f"Saved frame as {filename}")
+        print(f"📸 Saved frame as {filename}")
     elif key == ord('r') or key == ord('R'):  # Reset counters
         blink_counter = 0
         yawn_counter = 0
-        print(f"Counters reset - Blinks: 0, Yawns: 0")
+        print(f"🔄 Counters reset - Blinks: 0, Yawns: 0")
 
 cap.release()
 cv2.destroyAllWindows()
 face_mesh.close()
-print(f"Face mesh application closed successfully!")
-print(f"Final Stats - Blinks: {blink_counter}, Yawns: {yawn_counter}")
+print(f"✅ Face mesh application closed successfully!")
+print(f"📊 Final Stats - Blinks: {blink_counter}, Yawns: {yawn_counter}") 
