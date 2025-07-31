@@ -18,7 +18,7 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 
 | Component                    | Specification                        |
 |-----------------------------|--------------------------------------|
-| Jetson Nano                 | Main processing + ML                 |
+| Raspberry Pi 5                 | Main processing + ML                 |
 | Night-vision camera module  | For face and eye tracking            |
 | BLE heart rate wristband    | Wireless HR monitoring               |
 | MPU6050                     | 3-axis accelerometer + gyroscope     |
@@ -54,10 +54,18 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
   - `/software` — Sensor code, model code
   - `/docs` — Architecture, references, testing notes
 - [x] Add this README
+<<<<<<< HEAD
 - [x] Create basic wireframe or flowchart for system architecture
 - [x] Finalize and confirm each component (with SL purchase links)
 - [ ] Research BLE wristband data protocol (HR profile, UUIDs)
 - [ ] Connect the rasberry pi 5 to the NoIR camera and test Face Landmark Detection & Pose Estimation by OpenCV
+=======
+- [ ] Create basic wireframe or flowchart for system architecture
+- [ ] Finalize and confirm each component 
+- [ ] Create parts cost spreadsheet 
+- [ ] Order all hardware
+- [ ] Research BLE wristband data protocol
+>>>>>>> 3336e30aec50d47825ad3e2bbde4254918f976d5
 
 
 
