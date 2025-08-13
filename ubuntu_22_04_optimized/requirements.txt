@@ -1,0 +1,31 @@
+# Ubuntu 22.04 LTS Optimized Requirements
+# Tested and optimized for Ubuntu 22.04.5 LTS (Jammy Jellyfish)
+
+# Core Computer Vision and ML
+opencv-python==4.8.1.78
+mediapipe==0.10.7
+numpy==1.24.3
+
+# Image Processing
+Pillow==10.0.1
+
+# System Monitoring and Performance
+psutil==5.9.6
+
+# MediaPipe Dependencies
+absl-py==2.0.0
+attrs==23.1.0
+flatbuffers==23.5.26
+protobuf==4.24.4
+
+# Optional: GPU Support (uncomment if you have NVIDIA GPU)
+# tensorflow-gpu==2.13.0
+
+# Optional: Additional ML frameworks (uncomment if needed)
+# onnxruntime==1.16.1
+# torch==2.0.1
+# torchvision==0.15.2
+
+# Development and Debugging (optional)
+# matplotlib==3.7.2
+# jupyter==1.0.0 
