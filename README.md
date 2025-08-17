@@ -1,11 +1,9 @@
 # Driver Drowsiness Detection System
-
 An affordable, plug-and-play driver drowsiness detection system that monitors real-time facial features, heart rate (via wireless wristband), and driving patterns using accelerometer data to alert drivers and potentially prevent road accidents.
 
 ---
 
 ## Features
-
 - Real-time **video-based drowsiness detection** (blinks, yawns, head tilt)
 - **Wireless heart rate monitoring** via BLE wristband
 - **Driving behavior tracking** via accelerometer (erratic movements)
@@ -15,7 +13,6 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 ---
 
 ## Hardware Components
-
 | Component                    | Specification                        |
 |-----------------------------|--------------------------------------|
 | Raspberry Pi 5                 | Main processing + ML                 |
@@ -28,44 +25,50 @@ An affordable, plug-and-play driver drowsiness detection system that monitors re
 
 ## 12-Week Development Timeline
 
-| **Week** | **Milestone / Task**                                                                 |
-|----------|----------------------------------------------------------------------------------------|
-| 1        | Set up GitHub repo, finalize parts list, confirm vendors, create system design draft |
-| 2        | Place hardware orders, start architecture diagrams, plan BLE HR data format            |
-| 3        | Hardware arrives → unbox + test: Pi/Jetson, sensors, wristband                         |
-| 4        | Set up Pi/Jetson OS and dependencies, run test camera + sensors individually           |
-| 5        | BLE heart rate monitoring integration (test data acquisition from wristband)           |
-| 6        | Develop basic accelerometer data reading logic                                         |
-| 7        | Facial landmark detection (OpenCV/Dlib): eye aspect ratio, blinking test code          |
-| 8        | Integrate sensor streams: face data + HR + acceleration                                |
-| 9        | Develop alerting system (buzzer on drowsiness detection)                               |
-| 10       | Begin in-vehicle testing: gather sample data during day + night                        |
-| 11       | Optimize ML model thresholds (+ fallback rules), fix false alerts                      |
-| 12       | Final testing, wrap-up documentation, create demo video, project report                |
+| **Week** | **Milestone / Task**                                                                 | **Status** |
+|----------|----------------------------------------------------------------------------------------|------------|
+| 1        | Set up GitHub repo, finalize parts list, confirm vendors, create system design draft | ✅ Complete |
+| 2        | Place hardware orders, start architecture diagrams, plan BLE HR data format            | ✅ Complete |
+| 3        | Hardware arrives → unbox + test: Pi/Jetson, sensors, wristband                         | ✅ Complete |
+| 4        | Set up Pi and dependencies, run test camera                                            | ✅ Complete |
+| **5**    | **Deploy facial landmark detection code to Raspberry Pi, begin heart rate integration** | 🔄 **Current Week** |
+| 6        | Complete heart rate data collection and BLE communication setup                        |            |
+| 7        | Develop basic accelerometer data reading logic                                         |            |
+| 8        | Integrate sensor streams: face data + HR + acceleration                                |            |
+| 9        | Develop alerting system (buzzer on drowsiness detection)                               |            |
+| 10       | Begin in-vehicle testing: gather sample data during day + night                        |            |
+| 11       | Optimize ML model thresholds (+ fallback rules), fix false alerts                      |            |
+| 12       | Final testing, wrap-up documentation, create demo video, project report                |            |
 
 ---
 
-## Week 1 Task Plan (Next Week)
+## Current Progress Summary
 
-### Focus: Foundation & Planning
+### ✅ **Completed (Weeks 1-4)**
+- Hardware procurement and setup
+- Raspberry Pi 5 configuration with required dependencies
+- Camera module testing and verification
+- Facial landmark detection code development (OpenCV/Dlib)
+- Eye aspect ratio and blink detection algorithms implemented
+- Heart rate integration research completed
 
-- [x] Initialize GitHub repository structure:
-  - `/hardware` — Schematics, wiring diagrams
-  - `/software` — Sensor code, model code
-  - `/docs` — Architecture, references, testing notes
-- [x] Add this README
-<<<<<<< HEAD
-- [x] Create basic wireframe or flowchart for system architecture
-- [x] Finalize and confirm each component (with SL purchase links)
-- [ ] Research BLE wristband data protocol (HR profile, UUIDs)
-- [ ] Connect the rasberry pi 5 to the NoIR camera and test Face Landmark Detection & Pose Estimation by OpenCV
-=======
-- [ ] Create basic wireframe or flowchart for system architecture
-- [ ] Finalize and confirm each component 
-- [ ] Create parts cost spreadsheet 
-- [ ] Order all hardware
-- [ ] Research BLE wristband data protocol
->>>>>>> 3336e30aec50d47825ad3e2bbde4254918f976d5
+### 🔄 **Week 5 - Current Focus**
+- **Primary Goal**: Deploy facial landmark detection system to Raspberry Pi
+- **Secondary Goal**: Begin heart rate wristband integration
+- **Key Tasks**:
+  - Optimize facial detection performance on Pi hardware
+  - Test real-time processing capabilities
+  - Initialize BLE communication with heart rate wristband
+  - Validate heart rate data collection protocols
+
+### 📋 **Upcoming Priorities (Weeks 6-7)**
+- Complete heart rate sensor integration and data streaming
+- Implement accelerometer data collection from MPU6050
+- Begin multi-sensor data fusion architecture
+
+
+
+
 
 
 
